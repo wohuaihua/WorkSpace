@@ -75,6 +75,7 @@ public class StopThreadUnsafe {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException {
 		new ReadObjectThread().start();
 		while(true) {
