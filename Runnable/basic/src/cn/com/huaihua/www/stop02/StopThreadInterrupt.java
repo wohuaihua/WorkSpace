@@ -48,16 +48,17 @@ public class StopThreadInterrupt {
 		public void run() {
 			while(true) {
 				if(Thread.currentThread().isInterrupted()) {
-					System.out.println("exit by stop me");
+					System.out.println(Thread.currentThread().getId()+" :exit by stop me");
 					break;
 				}
 				synchronized (u) {
 					int v=(int)(System.currentTimeMillis()/1000);
 					u.setId(v);
 					try {
-						Thread.sleep(100);
+						System.out.println(Thread.currentThread().getId()+" :sleep");
+						Thread.sleep(100);//当前线程
 					} catch (InterruptedException e) {
-						System.out.println("Interruted When Sleep");
+						System.out.println(Thread.currentThread().getId()+" :Interruted When Sleep");
 						Thread.currentThread().interrupt();
 					}
 					u.setName(String.valueOf(v));
@@ -87,6 +88,7 @@ public class StopThreadInterrupt {
 		while(true) {
 			ChangeObjectThread t=new ChangeObjectThread();
 			t.start();
+			System.out.println(Thread.currentThread().getId());
 			Thread.sleep(150);
 			t.interrupt();
 		}
