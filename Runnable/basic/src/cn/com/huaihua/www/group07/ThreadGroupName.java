@@ -1,4 +1,4 @@
-package cn.com.huaihus.www.group07;
+package cn.com.huaihua.www.group07;
 
 public class ThreadGroupName implements Runnable{
 	
