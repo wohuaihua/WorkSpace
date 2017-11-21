@@ -9,7 +9,7 @@ public class ReenterLock implements Runnable{
 	@Override
 	public void run() {
 		for(int j=0;j<1000000;j++) {
-			lock.lock();//多次获得锁
+			lock.lock();//可以多次获得锁
 			lock.lock();
 			try {
 				i++;
