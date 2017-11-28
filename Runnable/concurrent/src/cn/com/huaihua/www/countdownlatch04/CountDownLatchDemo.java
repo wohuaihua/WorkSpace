@@ -18,7 +18,6 @@ public class CountDownLatchDemo implements Runnable {
 			System.out.println("check complete");
 			end.countDown();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 

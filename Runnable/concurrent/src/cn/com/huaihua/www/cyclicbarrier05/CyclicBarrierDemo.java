@@ -31,7 +31,7 @@ public class CyclicBarrierDemo {
 
 		private void dowork() {
 			try {
-				Thread.sleep(1000);//随机数可能为负数
+				Thread.sleep(new Random().nextInt(10) % 10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -72,6 +72,9 @@ public class CyclicBarrierDemo {
 			System.out.println("士兵"+i+"报道");
 			allSoldier[i]=new Thread(new Solider("士兵"+i+"个", cyclic));
 			allSoldier[i].start();
+			/*if(i==5) {
+				allSoldier[0].interrupt();
+			}*/
 		}
 		
 	}

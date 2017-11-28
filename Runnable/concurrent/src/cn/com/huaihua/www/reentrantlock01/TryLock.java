@@ -2,6 +2,10 @@ package cn.com.huaihua.www.reentrantlock01;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * @author 76494
+ *
+ */
 public class TryLock implements Runnable{
 	
 	public static ReentrantLock lock1=new ReentrantLock();

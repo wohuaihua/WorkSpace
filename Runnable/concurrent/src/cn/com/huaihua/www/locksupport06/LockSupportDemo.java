@@ -16,7 +16,7 @@ public class LockSupportDemo {
 		public void run() {
 			synchronized (u) {
 				System.out.println("in "+getName());
-				LockSupport.park();//阻塞线程,不用获取锁
+				LockSupport.park();//阻塞线程,不用获取锁,用信号量机制实现
 				//LockSupport.park(this); 设置一个阻塞对象，会出现在dump中
 			}
 		}
@@ -25,7 +25,7 @@ public class LockSupportDemo {
 		t1.start();
 		Thread.sleep(100);
 		t2.start();
-		LockSupport.unpark(t1);
+		LockSupport.unpark(t1);//如果给定线程的许可尚不可用，则使其可用。
 		LockSupport.unpark(t2);
 		t1.join();
 		t2.join();

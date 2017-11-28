@@ -3,6 +3,11 @@ package cn.com.huaihua.www.reentrantlock01;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * ÉêÇëËøµÈ´ıÏŞÊ±
+ * @author 76494
+ *
+ */
 public class TimeLock implements Runnable{
 	
 	public static ReentrantLock lock=new ReentrantLock();
@@ -13,7 +18,7 @@ public class TimeLock implements Runnable{
 			if(lock.tryLock(5, TimeUnit.SECONDS)) {
 				Thread.sleep(6000);
 			}else {
-				System.out.println("Get lock is fail");
+				System.out.println(Thread.currentThread().getId()+" Get lock is fail");
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

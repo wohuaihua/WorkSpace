@@ -5,6 +5,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁，实现读读之间真正的并行
+ * @author 76494
+ *
+ */
 public class ReadWriteDemo {
 	
 	private static Lock lock=new ReentrantLock();
@@ -41,8 +46,8 @@ public class ReadWriteDemo {
 			@Override
 			public void run() {
 				try {
-					//demo.handleRead(readLock);
-					demo.handleRead(lock);
+					demo.handleRead(readLock);
+					//demo.handleRead(lock);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -54,8 +59,8 @@ public class ReadWriteDemo {
 			@Override
 			public void run() {
 				try {
-					//demo.handleWrite(writeLock, new Random().nextInt());
-					demo.handleWrite(lock, new Random().nextInt());
+					demo.handleWrite(writeLock, new Random().nextInt());
+					//demo.handleWrite(lock, new Random().nextInt());
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
