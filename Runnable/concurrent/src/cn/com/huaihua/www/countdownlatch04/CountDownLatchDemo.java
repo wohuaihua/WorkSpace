@@ -16,7 +16,7 @@ public class CountDownLatchDemo implements Runnable {
 		try {
 			Thread.sleep(new Random().nextInt(10) * 1000);
 			System.out.println("check complete");
-			end.countDown();
+			end.countDown();//通知CountDownLatch，一个任务已经完成了，到计时器可以减一了。
 		} catch (Exception e) {
 		}
 	}

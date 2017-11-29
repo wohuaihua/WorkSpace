@@ -23,11 +23,13 @@ public class CountTask extends RecursiveTask<Long>{
 		long sum=0;
 		boolean canCompute=(end-start)<THRESHOLD;
 		if(canCompute) {
-			for(long i=start;i<end;i++) {
+			for(long i=start;i<=end;i++) {
 				sum+=i;
 			}
+			//System.out.println(sum);
 		}else {
 			long step=(start+end)/100;
+			//System.out.println(step);
 			ArrayList<CountTask> subTasks=new ArrayList<CountTask>();
 			long pos=start;
 			for(int i=0;i<100;i++) {
@@ -36,6 +38,7 @@ public class CountTask extends RecursiveTask<Long>{
 					lastOne=end;
 				}
 				CountTask subTask=new CountTask(pos, lastOne);
+				System.out.println(pos+" "+lastOne);
 				pos+=step+1;
 				subTasks.add(subTask);
 				subTask.fork();
