@@ -20,9 +20,47 @@
   
   <build>
     <plugins>
-	
-  </plugins>
+	</plugins>
   </build>
+  
+  <profiles>
+		<profile>
+			<!--<id>profile-1</id>
+			<activation>
+			<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<appserver.home>/path/to/dev/appserver</appserver.home>
+			</properties>
+			-->
+			
+			<!--有问题
+			<id>profile-2</id>
+			<activation>
+				<os>
+					<name>Windows 10</name>
+				</os>
+			</activation>
+			<properties>
+				<appserver.home>/path/to/dev/appserver</appserver.home>
+			</properties>
+			-->
+			
+			
+			<id>appserverConfig-dev-2</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>dev-2</value>
+				</property>
+			</activation>
+			<properties>
+			<appserver.home>/path/to/another/dev/appserver2</appserver.home>
+			</properties>
+
+		</profile>
+	</profiles>
+
 
 
 </project>
